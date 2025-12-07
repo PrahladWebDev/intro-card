@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prahlad Singh | Intro Card</title>
+
+    <!-- Modern Clean Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -17,414 +21,192 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            overflow: hidden;
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
+            padding: 20px;
         }
 
+        /* ----------- Intro Card ----------- */
         .intro-card {
-            position: relative;
-            width: 800px;
-            height: 450px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            width: 850px;
+            max-width: 95%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             padding: 40px;
-            color: white;
-            z-index: 1;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            animation: fadeIn 0.8s ease forwards;
         }
 
-        .intro-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 6s infinite linear;
-            z-index: -1;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes shine {
-            0% {
-                transform: rotate(45deg) translateX(-100%);
-            }
-            100% {
-                transform: rotate(45deg) translateX(100%);
-            }
-        }
-
+        /* ----------- Layout ----------- */
         .profile-container {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
-            width: 100%;
+            gap: 30px;
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 30px;
-            position: relative;
             overflow: hidden;
-            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            border: 3px solid white;
+            flex-shrink: 0;
         }
 
-        .avatar::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            animation: avatar-shine 4s infinite linear;
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        @keyframes avatar-shine {
-            0% {
-                transform: rotate(45deg) translateX(-100%);
-            }
-            100% {
-                transform: rotate(45deg) translateX(100%);
-            }
-        }
-
-        .avatar i {
-            font-size: 50px;
-            color: white;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        .intro-text {
-            flex: 1;
-        }
-
-        .greeting {
-            font-size: 18px;
-            margin-bottom: 5px;
-            opacity: 0;
-            animation: fadeIn 1s forwards 0.5s;
-        }
-
-        .name {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ff8a00, #e52e71);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            opacity: 0;
-            animation: fadeIn 1s forwards 1s;
-        }
-
-        .title {
-            font-size: 28px;
-            margin-bottom: 15px;
-            opacity: 0;
-            animation: fadeIn 1s forwards 1.5s;
-        }
-
-        .description {
+        /* ----------- Text Section ----------- */
+        .intro-text .greeting {
             font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 1s forwards 2s;
+            color: #666;
+            margin-bottom: 4px;
         }
 
+        .intro-text .name {
+            font-size: 38px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 6px;
+        }
+
+        .intro-text .title {
+            font-size: 22px;
+            font-weight: 500;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        /* ----------- CTA Button Under Title ----------- */
+        .intro-actions {
+            margin-bottom: 18px;
+        }
+
+        .cta-button {
+            padding: 11px 26px;
+            background: #111;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-3px);
+        }
+
+        /* ----------- Description ----------- */
+        .intro-text .description {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            max-width: 600px;
+        }
+
+        /* ----------- Skills Pills ----------- */
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 25px;
-            opacity: 0;
-            animation: fadeIn 1s forwards 2.5s;
         }
 
         .skill {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 15px;
+            padding: 6px 16px;
+            background: #f1f1f1;
             border-radius: 20px;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: 0.25s ease;
+            border: 1px solid #e0e0e0;
         }
 
         .skill:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
+            background: #e5e5e5;
+            transform: translateY(-3px);
         }
 
-        .cta-button {
-            padding: 12px 30px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border: none;
-            border-radius: 30px;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 1s forwards 3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.5s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            animation: floatAround 20s infinite linear;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 40px;
-            height: 40px;
-            top: 10%;
-            left: 10%;
-            animation-duration: 25s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 70%;
-            left: 80%;
-            animation-duration: 30s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 30px;
-            height: 30px;
-            top: 50%;
-            left: 5%;
-            animation-duration: 20s;
-        }
-
-        .floating-element:nth-child(4) {
-            width: 50px;
-            height: 50px;
-            top: 20%;
-            left: 85%;
-            animation-duration: 35s;
-        }
-
-        @keyframes floatAround {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(50px, 50px) rotate(90deg);
-            }
-            50% {
-                transform: translate(0, 100px) rotate(180deg);
-            }
-            75% {
-                transform: translate(-50px, 50px) rotate(270deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(360deg);
-            }
-        }
-
-        .code-brackets {
-            position: absolute;
-            font-size: 200px;
-            color: rgba(255, 255, 255, 0.05);
-            font-weight: bold;
-            z-index: -1;
-        }
-
-        .bracket-left {
-            top: 50%;
-            left: 5%;
-            transform: translateY(-50%);
-        }
-
-        .bracket-right {
-            top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
-        }
-
-        @media (max-width: 850px) {
-            .intro-card {
-                width: 90%;
-                height: auto;
-                padding: 30px 20px;
-            }
-            
+        /* ----------- Responsive ----------- */
+        @media (max-width: 750px) {
             .profile-container {
                 flex-direction: column;
                 text-align: center;
             }
-            
-            .avatar {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .name {
+            .intro-text .name {
                 font-size: 32px;
             }
-            
-            .title {
-                font-size: 24px;
+            .intro-text .title {
+                font-size: 20px;
             }
-            
-            .code-brackets {
-                font-size: 120px;
+            .intro-text .description {
+                text-align: center;
+                max-width: 100%;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <div class="intro-card">
-        <div class="code-brackets bracket-left">{</div>
-        <div class="code-brackets bracket-right">}</div>
-        
-        <div class="floating-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
-        
         <div class="profile-container">
+            
+            <!-- Avatar -->
             <div class="avatar">
-                <i class="fas fa-code"></i>
+                <img src="Prahlad Singh.jpg" alt="Prahlad Singh">
             </div>
+
+            <!-- Text Section -->
             <div class="intro-text">
                 <div class="greeting">Hello, I'm</div>
+
                 <h1 class="name">Prahlad Singh</h1>
+
                 <h2 class="title">Full Stack Web Developer</h2>
-                <p class="description">I create beautiful, functional, and responsive web experiences. With a passion for clean code and innovative design, I bring ideas to life in the digital space.</p>
-                
-                <div class="skills">
-                    <div class="skill">MERN</div>
-                    <div class="skill">PHP</div>
+
+                <!-- BUTTON MOVED HERE -->
+                <div class="intro-actions">
+                    <button class="cta-button" onclick="window.open('https://portfolio.prahladsingh.in', '_blank')">
+                        View My Portfolio
+                    </button>
                 </div>
-                
-                <button 
-  class="cta-button" 
-  onclick="window.open('https://portfolio.prahladsingh.in', '_blank')"
->
-  View My Portfolio
-</button>
+
+                <p class="description">
+                    I craft clean, functional and scalable web applications. With expertise in 
+                    MERN Stack, backend architecture, and modern deployment pipelines, 
+                    I turn ideas into reliable and elegant digital experiences.
+                </p>
+
+                <div class="skills">
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">MERN</div>
+                    <div class="skill">Node.js</div>
+                    <div class="skill">Express.js</div>
+                    <div class="skill">MongoDB</div>
+                    <div class="skill">PHP</div>
+                    <div class="skill">DevOps</div>
+                </div>
+
             </div>
+
         </div>
     </div>
 
-    <script>
-        // Add random rotation to floating elements
-        document.querySelectorAll('.floating-element').forEach(el => {
-            const randomRotation = Math.floor(Math.random() * 360);
-            el.style.transform = `rotate(${randomRotation}deg)`;
-        });
-        
-        // Add click effect to CTA button
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
-            
-            // Create ripple effect
-            const ripple = document.createElement('div');
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-            ripple.style.width = '0px';
-            ripple.style.height = '0px';
-            ripple.style.top = '50%';
-            ripple.style.left = '50%';
-            ripple.style.transform = 'translate(-50%, -50%)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-        
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    width: 300px;
-                    height: 300px;
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
